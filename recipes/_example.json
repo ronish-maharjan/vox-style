@@ -1,0 +1,10 @@
+{
+  "name": "stat-reveal",
+  "use": "Reveal one headline number over a paper background.",
+  "params": { "value": "The number as text", "cueWord": "Word that triggers the reveal" },
+  "shot": {
+    "layers": [
+      { "prop": "bigNumber", "slots": { "value": "{{value}}" }, "at": "word:{{cueWord}}" }
+    ]
+  }
+}

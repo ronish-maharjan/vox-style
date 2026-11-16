@@ -1,0 +1,12 @@
+{
+  "name": "clip-and-mark",
+  "use": "Show a newspaper clipping as proof and highlight the key headline word.",
+  "params": { "headline": "Headline, under 10 words", "body": "One or two sentences", "source": "Paper name and date", "mark": "A word or phrase from the headline to highlight", "cueWord": "Spoken word that brings the clipping in" },
+  "shot": {
+    "camera": { "move": "push-in" },
+    "layers": [
+      { "prop": "paperBg", "options": { "variant": "grid" }, "at": "start" },
+      { "prop": "newspaperClip", "slots": { "headline": "{{headline}}", "body": "{{body}}", "source": "{{source}}" }, "options": { "mark": "{{mark}}" }, "at": "word:{{cueWord}}" }
+    ]
+  }
+}

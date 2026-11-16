@@ -1,0 +1,70 @@
+{
+    "name": "vox-studio",
+    "version": "0.1.0",
+    "type": "module",
+    "exports":{
+        ".": "./index.js",
+        "./core/*": "./core/*",
+        "./kit/*": "./props/_shared/*",
+        "./lib/*": "./lib/*",
+        "./backends/*": "./backends/*",
+        "./package.json": "./package.json"
+    },
+    "private": true,
+    "engines": {
+        "node": ">=20"
+    },
+    "bin": {
+        "vox": "./bin/vox.mjs"
+    },
+    "scripts": {
+        "test": "node --test",
+        "scan": "node tools/scan-props.mjs",
+        "preview": "node tools/preview.mjs",
+        "catalog": "node tools/catalog.mjs",
+        "validate": "node tools/validate.mjs",
+        "compile": "node tools/compile.mjs",
+        "video": "node tools/video.mjs",
+        "subtitles": "node tools/subtitles.mjs",
+        "thumbnail": "node tools/thumbnail.mjs",
+        "watch": "node tools/watch.mjs",
+        "mcp": "node mcp/server.mjs",
+        "new-prop": "node tools/new-prop.mjs",
+        "setup": "node tools/setup.mjs",
+        "doctor": "node tools/doctor.mjs",
+        "bench": "node tools/bench.mjs",
+        "capture": "node tools/capture.mjs",
+        "setup:geo": "node tools/setup-geo.mjs",
+        "test:props": "node --test tests/props.test.mjs",
+        "export": "node tools/export.mjs",
+        "align": "node tools/align.mjs",
+        "sfx": "node tools/sfx.mjs",
+        "mix": "node tools/mix.mjs",
+        "make": "node tools/make.mjs",
+        "setup:audio": "node tools/setup-audio.mjs",
+        "bundle": "node tools/bundle.mjs",
+        "pack": "node tools/pack.mjs",
+        "qa": "node tools/qa.mjs",
+        "slots": "node tools/slots.mjs",
+        "audit:roots": "node tools/audit-roots.mjs",
+        "geo:names": "node tools/geo-names.mjs",
+        "brief": "node tools/brief.mjs",
+        "brief:prop": "node tools/brief-prop.mjs",
+        "schema": "node tools/schema.mjs",
+        "speak": "node tools/speak.mjs"
+    },
+    "description": "Code-drawn paper-craft explainer videos. script.json -> director -> camera -> props -> canvas -> MP4.",
+    "main": "index.js",
+    "directories": {
+        "test": "tests"
+    },
+    "keywords": [],
+    "dependencies": {
+        "ffmpeg-static": "^5.3.0",
+        "skia-canvas": "^4.0.0"
+    },
+    "optionalDependencies": {
+        "@napi-rs/canvas": "^1.1.0",
+        "puppeteer-core": "^25.16.0"
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "verdict-stamp",
+  "use": "A photo, then a rubber stamp slams onto it for the verdict or punchline.",
+  "params": { "src": "Photo asset path", "caption": "Short photo caption", "text": "Stamp text, 1-3 words", "cueWord": "Spoken word that triggers the stamp" },
+  "shot": {
+    "camera": { "move": "push-in" },
+    "layers": [
+      { "prop": "paperBg", "options": { "variant": "kraft" }, "at": "start" },
+      { "prop": "paperPhoto", "slots": { "src": "{{src}}", "caption": "{{caption}}" }, "at": "start" },
+      { "prop": "stamp", "slots": { "text": "{{text}}" }, "at": "word:{{cueWord}}" }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "stat-reveal",
+  "use": "Reveal one headline number on a paper background; the default way to land a statistic.",
+  "params": { "value": "The number as text, e.g. \"156\" or \"1997\"", "label": "Short label under it (about 6 words max)", "cueWord": "Spoken word that triggers the reveal" },
+  "shot": {
+    "camera": { "move": "push-in" },
+    "layers": [
+      { "prop": "paperBg", "options": { "variant": "dots" }, "at": "start" },
+      { "prop": "bigNumber", "slots": { "value": "{{value}}", "label": "{{label}}" }, "at": "word:{{cueWord}}" }
+    ]
+  }
+}

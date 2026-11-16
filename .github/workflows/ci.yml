@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      # ffmpeg-static downloads its binary during install; the allowlist approves it
+      - name: Install dependencies
+        run: |
+          npm install --no-audit --no-fund
+          npx --yes install-scripts approve ffmpeg-static || true
+          npm rebuild ffmpeg-static || true
+
+      - name: Environment doctor
+        run: npm run doctor
+
+      - name: Unit + integration tests
+        run: npm test
+
+      - name: Draft render smoke test (demo project)
+        run: |
+          npm run validate -- demo
+          npm run make -- demo --draft
+
+      - name: Full pipeline smoke test (intent -> video -> analyze)
+        run: |
+          npm run video -- video-e2e --draft-only
+          node tools/analyze.mjs video-e2e --json > /dev/null
+
+      - name: MCP server smoke test
+        run: node --test tests/mcp.test.mjs
+
+      - name: Catalog is up to date
+        run: |
+          npm run catalog
+          git diff --exit-code CATALOG.md || (echo "CATALOG.md is stale — run npm run catalog and commit" && exit 1)

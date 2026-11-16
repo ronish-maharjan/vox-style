@@ -1,0 +1,13 @@
+{
+  "model": "small.en",
+  "device": "cpu",
+  "computeType": "int8",
+  "beam": 5,
+  "usePrompt": true,
+  "lead": 0.3,
+  "lineGap": 0.35,
+  "tail": 0.4,
+  "maxGap": 0.8,
+  "minLineConfidence": 0.6,
+  "cueMinConfidence": 0.6
+}

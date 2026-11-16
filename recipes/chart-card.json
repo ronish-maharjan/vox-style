@@ -1,0 +1,12 @@
+{
+  "name": "chart-card",
+  "use": "Compare 2-6 values with a bar chart; optionally highlight one bar.",
+  "params": { "title": "Chart title in capitals", "data": "Array of {label, value}", "unit": "Unit suffix such as \"M\" or \"%\"", "highlight": "0-based index of the bar to emphasise (a number)", "cueWord": "Spoken word that brings the chart in" },
+  "shot": {
+    "camera": { "move": "push-in" },
+    "layers": [
+      { "prop": "paperBg", "options": { "variant": "grid" }, "at": "start" },
+      { "prop": "barChart", "slots": { "title": "{{title}}", "data": "{{data}}" }, "options": { "unit": "{{unit}}", "highlight": "{{highlight}}" }, "at": "word:{{cueWord}}" }
+    ]
+  }
+}

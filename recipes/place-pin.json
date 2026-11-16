@@ -1,0 +1,12 @@
+{
+  "name": "place-pin",
+  "use": "Show where something happened: a regional map with a highlighted territory and labelled pins.",
+  "params": { "bbox": "[west, south, east, north] in degrees", "focus": "Array of country/territory names to colour", "pins": "Array of {lon, lat, label, side?}", "cueWord": "Spoken word that brings the map in" },
+  "shot": {
+    "camera": { "move": "push-in" },
+    "layers": [
+      { "prop": "paperBg", "options": { "variant": "plain" }, "at": "start" },
+      { "prop": "baseMap", "slots": { "focus": "{{focus}}", "pins": "{{pins}}" }, "options": { "bbox": "{{bbox}}" }, "at": "word:{{cueWord}}" }
+    ]
+  }
+}
