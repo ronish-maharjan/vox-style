@@ -47,7 +47,7 @@ Prioritize storytelling over mechanical line-to-shot mapping.
 
 ### 3. Visual planning
 
-Create a project-level `visual-plan.md` before generating `script.json`.
+Create a project-specific-level `projects/<project-name>/visual-plan.md` before generating `script.json`.
 
 Use `PROP_SELECTION.md` to determine the most appropriate visual representation for every narrative beat.
 
